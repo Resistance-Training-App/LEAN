@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19574" systemVersion="21D62" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Exercise" representedClassName="Exercise" syncable="YES">
+        <attribute name="category" optional="YES" attributeType="String"/>
+        <attribute name="desc" optional="YES" attributeType="String"/>
+        <attribute name="equipment" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isFavourite" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="isHold" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="isLearnt" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isRotation" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String" defaultValueString=""/>
+        <attribute name="order" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="picture" optional="YES" attributeType="Binary"/>
+        <attribute name="repTime" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="tutorial" optional="YES" attributeType="String"/>
+        <attribute name="userCreated" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
+        <relationship name="metrics" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Metrics" inverseName="exercise" inverseEntity="Metrics"/>
+        <relationship name="reps" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Reps" inverseName="exercise" inverseEntity="Reps"/>
+        <relationship name="weight" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Weight" inverseName="exercise" inverseEntity="Weight"/>
+        <relationship name="workout" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Workout" inverseName="exercises" inverseEntity="Workout"/>
+    </entity>
+    <entity name="Metrics" representedClassName="Metrics" syncable="YES">
+        <attribute name="order" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="repCount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="repEndTimes" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName"/>
+        <attribute name="repMiddleTimes" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName"/>
+        <attribute name="repRangeOfMotions" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName"/>
+        <attribute name="repStartTimes" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName"/>
+        <attribute name="results" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName"/>
+        <attribute name="weightChoice" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="exercise" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Exercise" inverseName="metrics" inverseEntity="Exercise"/>
+    </entity>
+    <entity name="PersonalBest" representedClassName="PersonalBest" syncable="YES">
+        <attribute name="exerciseName" optional="YES" attributeType="String"/>
+        <attribute name="weight" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="profile" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Profile" inverseName="personalBest" inverseEntity="Profile"/>
+    </entity>
+    <entity name="Profile" representedClassName="Profile" syncable="YES">
+        <attribute name="countdown" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="creationDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="email" optional="YES" attributeType="String" defaultValueString=""/>
+        <attribute name="firstName" optional="YES" attributeType="String" defaultValueString=""/>
+        <attribute name="formAdviceAlerts" optional="YES" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String" defaultValueString=""/>
+        <attribute name="picture" optional="YES" attributeType="Binary"/>
+        <attribute name="theme" optional="YES" attributeType="String"/>
+        <attribute name="weightUnit" optional="YES" attributeType="String" defaultValueString="kg"/>
+        <relationship name="personalBest" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PersonalBest" inverseName="profile" inverseEntity="PersonalBest"/>
+        <relationship name="statistics" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Statistics" inverseName="profile" inverseEntity="Statistics"/>
+    </entity>
+    <entity name="Reps" representedClassName="Reps" syncable="YES">
+        <attribute name="count" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="order" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="exercise" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Exercise" inverseName="reps" inverseEntity="Exercise"/>
+    </entity>
+    <entity name="Statistics" representedClassName="Statistics" syncable="YES">
+        <attribute name="longestWorkout" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="reps" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="time" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="workouts" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="profile" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Profile" inverseName="statistics" inverseEntity="Profile"/>
+    </entity>
+    <entity name="Stretch" representedClassName="Stretch" syncable="YES">
+        <attribute name="category" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isCopy" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="order" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="picture" optional="YES" attributeType="Binary"/>
+        <attribute name="repTime" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
+        <relationship name="workout" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Workout" inverseName="stretches" inverseEntity="Workout"/>
+    </entity>
+    <entity name="Weight" representedClassName="Weight" syncable="YES">
+        <attribute name="count" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="order" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="exercise" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Exercise" inverseName="weight" inverseEntity="Exercise"/>
+    </entity>
+    <entity name="Workout" representedClassName="Workout" syncable="YES">
+        <attribute name="category" optional="YES" attributeType="String"/>
+        <attribute name="coolDown" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isCopy" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isFavourite" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String" defaultValueString=""/>
+        <attribute name="sets" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="time" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="timeCreated" attributeType="Date" defaultDateTimeInterval="648814800" usesScalarValueType="NO"/>
+        <attribute name="warmUp" optional="YES" attributeType="String"/>
+        <relationship name="exercises" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Exercise" inverseName="workout" inverseEntity="Exercise"/>
+        <relationship name="stretches" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Stretch" inverseName="workout" inverseEntity="Stretch"/>
+        <relationship name="workoutHistories" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WorkoutHistory" inverseName="workout" inverseEntity="WorkoutHistory"/>
+    </entity>
+    <entity name="WorkoutHistory" representedClassName="WorkoutHistory" syncable="YES">
+        <attribute name="avgHeartRate" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="calories" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isJustWorkout" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="time" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="workout" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Workout" inverseName="workoutHistories" inverseEntity="Workout"/>
+    </entity>
+    <elements>
+        <element name="Exercise" positionX="-373.02734375" positionY="-8.92578125" width="128" height="299"/>
+        <element name="Metrics" positionX="-189" positionY="-99" width="128" height="164"/>
+        <element name="PersonalBest" positionX="499.1484375" positionY="-140.43359375" width="128" height="88"/>
+        <element name="Profile" positionX="98.97265625" positionY="-247.859375" width="128" height="194"/>
+        <element name="Reps" positionX="-13.7109375" positionY="93.58203125" width="128" height="74"/>
+        <element name="Statistics" positionX="501.55078125" positionY="-6.65625" width="128" height="104"/>
+        <element name="Stretch" positionX="-383.12109375" positionY="282.52734375" width="128" height="164"/>
+        <element name="Weight" positionX="-166.76953125" positionY="51.06640625" width="128" height="74"/>
+        <element name="Workout" positionX="147.82421875" positionY="227.234375" width="140.875" height="224"/>
+        <element name="WorkoutHistory" positionX="421.55859375" positionY="377.58984375" width="128" height="134"/>
+    </elements>
+</model>

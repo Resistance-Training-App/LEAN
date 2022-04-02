@@ -1,0 +1,32 @@
+{
+   "defaultWorkout": [
+        {
+            "isFavourite": false,
+            "name": "MyWorkout0",
+            "sets": 1,
+            "time": 0,
+            "isCopy": false
+        },
+        {
+            "isFavourite": false,
+            "name": "MyWorkout1",
+            "sets": 1,
+            "time": 0,
+            "isCopy": false
+        },
+        {
+            "isFavourite": false,
+            "name": "MyWorkout2",
+            "sets": 1,
+            "time": 0,
+            "isCopy": false
+        },
+        {
+            "isFavourite": false,
+            "name": "MyWorkout3",
+            "sets": 1,
+            "time": 0,
+            "isCopy": false
+        }
+    ]
+}

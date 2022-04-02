@@ -1,0 +1,79 @@
+{
+    "defaultStretches": [
+        {
+            "name": "Overhead Triceps and Shoulder Stretch",
+            "category": "Upper Body",
+            "picture": ""
+        },
+        {
+            "name": "Cross-Body Shoulder Stretch",
+            "category": "Upper Body",
+            "picture": ""
+        },
+        {
+            "name": "Biceps Stretch",
+            "category": "Upper Body",
+            "picture": ""
+        },
+        {
+            "name": "Chest Stretch",
+            "category": "Upper Body",
+            "picture": ""
+        },
+        {
+            "name": "Wrist Extension Stretch",
+            "category": "Upper Body",
+            "picture": ""
+        },
+        {
+            "name": "Child's Pose",
+            "category": "Core",
+            "picture": ""
+        },
+        {
+            "name": "Cobra Pose",
+            "category": "Core",
+            "picture": ""
+        },
+        {
+            "name": "Cat Cow Stretch",
+            "category": "Core",
+            "picture": ""
+        },
+        {
+            "name": "Side Stretch",
+            "category": "Core",
+            "picture": ""
+        },
+        {
+            "name": "Hip Stretch",
+            "category": "Core",
+            "picture": ""
+        },
+        {
+            "name": "Quad Stretch",
+            "category": "Lower Body",
+            "picture": ""
+        },
+        {
+            "name": "Hamstring and Calf Stretch",
+            "category": "Lower Body",
+            "picture": ""
+        },
+        {
+            "name": "Seated hamstring stretch",
+            "category": "Lower Body",
+            "picture": ""
+        },
+        {
+            "name": "Downward Facing Dog",
+            "category": "Lower Body",
+            "picture": ""
+        },
+        {
+            "name": "Heel Drops",
+            "category": "Lower Body",
+            "picture": ""
+        },
+    ]
+}
