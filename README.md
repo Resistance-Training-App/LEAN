@@ -1,4 +1,4 @@
-# Workout-Planner
+# LEAN
 
 This repository is for the main resistance training app for this project.
 
